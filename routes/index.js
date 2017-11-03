@@ -22,6 +22,7 @@ router.get('/', function (req, res, next) {
       return elm.type === 'message' && elm.subtype !== 'file_share'
     });
 
+    // ノード情報の作成
     const nodes =  channelMembers.map((elm) => {
       const node = new Object();
       node.id = elm;
@@ -39,6 +40,7 @@ router.get('/', function (req, res, next) {
       };
     });
 
+    // エッジ情報(矢印)の情報の作成
     const messageObject = new Object();
     const mensionMessages = messages.map((elm) => {
       const text = elm.text;
@@ -70,6 +72,8 @@ router.get('/', function (req, res, next) {
         })
       });
     });
+
+
     res.render('index', { elements: { 
       nodes:nodes, 
       edges:edges

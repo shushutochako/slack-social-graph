@@ -31,7 +31,7 @@ router.get('/', function (req, res, next) {
           node.name = user.name;
         }
       });
-      node.weight = 150;
+      node.weight = 100;
       const favColorIndex  = Math.floor(Math.random() * (faveColors.length - 1));
       node.faveColor = faveColors[favColorIndex];
       node.faveShape = 'ellipse';

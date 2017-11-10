@@ -30,13 +30,11 @@
       style: cytoscape.stylesheet()
         .selector('node')
         .css({
-          'shape': 'data(faveShape)',
+          'shape': 'data(shape)',
           'width': 'mapData(weight, 0, 100, 0, 100)',
           'content': 'data(name)',
           'text-valign': 'center',
-          'text-outline-width': 2,
-          'text-outline-color': 'data(faveColor)',
-          'background-color': 'data(faveColor)',
+          'background-color': 'data(backGroundColor)',
           'color': '#fff'
         })
         .selector(':selected')
@@ -48,12 +46,12 @@
         .css({
           'curve-style': 'bezier',
           'opacity': 0.666,
-          'width': 'mapData(strength, 0, 10, 1, 10)',
+          'width': 'mapData(width, 0, 10, 1, 10)',
           'target-arrow-shape': 'triangle',
           'source-arrow-shape': 'circle',
-          'line-color': 'data(faveColor)',
-          'source-arrow-color': 'data(faveColor)',
-          'target-arrow-color': 'data(faveColor)'
+          'line-color': 'data(color)',
+          'source-arrow-color': 'data(color)',
+          'target-arrow-color': 'data(color)'
         })
         .selector('edge.questionable')
         .css({

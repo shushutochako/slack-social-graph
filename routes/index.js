@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const SlackClient = require('../logic/slack-client');
 const config = require('../slack-config.json');
-const faveColors = ['#6FB1FC','#EDA1ED','#FF425B','#FFC85B','#16C85B'];
+const colors = ['#6FB1FC','#EDA1ED','#FF425B','#FFC85B','#16C85B'];
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -32,9 +32,9 @@ router.get('/', function (req, res, next) {
         }
       });
       node.weight = 100;
-      const favColorIndex  = Math.floor(Math.random() * (faveColors.length - 1));
-      node.faveColor = faveColors[favColorIndex];
-      node.faveShape = 'ellipse';
+      const colorIndex  = Math.floor(Math.random() * (colors.length - 1));
+      node.backGroundColor = colors[colorIndex];
+      node.shape = 'ellipse';
       return {
         data: node
       };
@@ -66,13 +66,12 @@ router.get('/', function (req, res, next) {
           data: {
             source: source,
             target: target,
-            faveColor: '#494747',
-            strength: messageObject[source][target]
+            color: '#494747',
+            width: messageObject[source][target]
           }
         })
       });
     });
-
 
     res.render('index', { elements: { 
       nodes:nodes, 
